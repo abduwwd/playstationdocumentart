@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playstation Industrial Revolution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .current-page {
+            display: block;
+            opacity: 1;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="page current-page fade-in">
+            <h2>About Playstation Industrial Revolution</h2>
+            <p>
+                PlayStation isn't just a gaming console; it's a cultural phenomenon that has left an indelible mark on millions of lives around the world. From its humble beginnings in 1994 to its current status as a cornerstone of modern entertainment, PlayStation has captured the hearts and imaginations of gamers everywhere. Documentaries exploring the PlayStation journey often reveal the deeply personal stories behind its creation and evolution, from the visionary minds at Sony who dared to challenge the status quo to the passionate developers who poured their souls into crafting unforgettable gaming experiences.
+            </p>
+            <button class="btn" onclick="nextPage()">Next Page</button>
+        </section>
+
+        <section class="page">
+            <img src="Playstation.jpg" alt="PS5">
+            <p class="fade-in">
+                In "The PlayStation Revolution," viewers are transported back to a time when gaming was on the brink of a revolution. Through intimate interviews and captivating storytelling, the documentary brings to life the struggles, triumphs, and pivotal moments that defined PlayStation's ascent to greatness. From the exhilarating highs of groundbreaking titles like "Final Fantasy" to the heart-wrenching lows of corporate rivalry, every chapter of PlayStation's history is imbued with a human touch that resonates with audiences on a profound level.
+            </p>
+            <button class="btn" onclick="prevPage()">Previous Page</button>
+            <button class="btn" onclick="nextPage()">Next Page</button>
+            <button class="btn" onclick="toggleImage()">Click to reveal image</button>
+            <button class="btn" onclick="hideImage()">Click to hide image</button>
+        </section>
+
+        <section class="page">
+            <img src="s-l1600.jpg" alt="PS1">
+            <p class="fade-in">
+                Similarly, "Rise of the PlayStation: The Fall of Sega" paints a vivid portrait of the fierce competition that defined the console wars of the 90s. But beyond the battles for market dominance, the documentary delves into the personal journeys of the individuals who lived and breathed PlayStation, from the executives making high-stakes decisions to the gamers whose lives were forever changed by the magic of interactive storytelling. These documentaries aren't just about pixels and polygons; they're about the people behind the pixels, the human stories that have made PlayStation a beloved household name for generations.
+            </p>
+            <button class="btn" onclick="prevPage()">Previous Page</button>
+            <button class="btn" onclick="nextPage()">Next Page</button>
+            <button class="btn" onclick="toggleImage()">Click to reveal image</button>
+            <button class="btn" onclick="hideImage()">Click to hide image</button>
+        </section>
+
+        <section class="page">
+            <div class="video-container">
+                <video controls>
+                    <source src="0229.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="fade-in">
+                This is a video showcasing the evolution of PlayStation from its inception to the modern era.
+            </p>
+            <button class="btn" onclick="prevPage()">Previous Page</button>
+        </section>
+    </div>
+
+    <script>
+        var currentPageIndex = 0;
+        var pages = document.querySelectorAll('.page');
+
+        function showPage(index) {
+            pages.forEach(function(page, pageIndex) {
+                if (pageIndex === index) {
+                    page.classList.add('current-page', 'fade-in');
+                } else {
+                    page.classList.remove('current-page');
+                }
+            });
+        }
+
+        function nextPage() {
+            if (currentPageIndex < pages.length - 1) {
+                currentPageIndex++;
+                showPage(currentPageIndex);
+            }
+        }
+
+        function prevPage() {
+            if (currentPageIndex > 0) {
+                currentPageIndex--;
+                showPage(currentPageIndex);
+            }
+        }
+
+        function toggleImage() {
+            var images = document.querySelectorAll('img');
+            images.forEach(function(image) {
+                image.style.display = 'block';
+            });
+        }
+
+        function hideImage() {
+            var images = document.querySelectorAll('img');
+            images.forEach(function(image) {
+                image.style.display = 'none';
+            });
+        }
+    </script>
+<p>&copy; 2024 Abdulaziz, Ali, Eissa, Hadi, 2 Kuwaiti and 2 Lebanese
+</body>
+</html>
